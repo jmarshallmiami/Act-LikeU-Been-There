@@ -29,11 +29,11 @@ STRETCH GOAL:
 
 ## Tech Stack
 
-- What languages is it written with: CSS, HTML, JavaScript, <u> JSON </u>
+- What languages is it written with: CSS, JavaScript
 
 - What libraries are used: Bulma
 
-- Other: 
+- Other: JSON, HTML, Markdown
 
 
 ## APIs
