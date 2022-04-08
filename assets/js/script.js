@@ -1,4 +1,4 @@
-var apiUrl = "http://api.sportradar.us/ncaamb/trial/v7/en/league/seasons.json?api_key="
+var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.sportradar.us/ncaamb/trial/v7/en/league/seasons.json?api_key=2av3gz3ykys9r8sd4qaq8urm"
 
 
 // make a get request to url
