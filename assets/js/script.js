@@ -1,15 +1,23 @@
-var apiUrl = "https://cors-anywhere.herokuapp.com/http://api.sportradar.us/ncaamb/trial/v7/en/league/seasons.json?api_key=2av3gz3ykys9r8sd4qaq8urm"
+var teamNames = "https://www.balldontlie.io/api/v1/teams"
+var selectTeamObject = document.querySelector(".team-select");
 
 
-// make a get request to url
-fetch(apiUrl).then(function(response) {
+//fetch all NBA team names from
+fetch(teamNames).then(function (response) {
   // request was successful
   if (response.ok) {
-    response.json().then(function(data) {
-        console.log(data);
-      }
-    );
-  } else {
- console.log("No Data Found")
+    return response.json();
   }
-});
+})
+  .then(function (data) {
+    var teams = data.data;
+
+    for (var i = 0; i < teams.length; i++) {
+      var teamNamesEl = document.createElement("option");
+      teamNamesEl.setAttribute("value", i);
+      teamNamesEl.innerHTML = teams[i].full_name
+      console.log(teamNamesEl);
+      selectTeamObject.appendChild(teamNamesEl)
+    };
+  });
+
