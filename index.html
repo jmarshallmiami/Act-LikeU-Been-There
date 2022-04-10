@@ -6,44 +6,61 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <title>At LikeU Been There: NCAA Championship Tracker</title>
 </head>
 
 <body>
-    <div class="container">
-        <header>
+    
+    <div class="columns">
+        <!--
+        <header class="box">
             <h1> Act Like U Been There</h1>
             <!-- <img src="placeholder" alt="NCAA Logo placeholder"> -->
-        </header>
+        </header> 
 
-        <!-- option start start -->
-        <section class="container">
-            <label for="college-team">Who's Your NBA Basketball Team?</label>
-          <select class="team-select">
-          </select>
-        </section>
+        <div class="column box1 is-one-third">
+            <!-- option start start -->
+            <section class="container">
+                <label for="college-team">Who's Your NBA Basketball Team?</label>
+            <select class="team-select">
+            </select>
+            </section>
+        </div>
         <!-- input end -->
 
         <!-- hero start -->
-        <main>
-            <h2>Selected Team</h2>
-            <!-- <img src="placeholder" alt="placeholder for the NCAA tourney gif"> -->
-            <div>Conference C</div>
-            <div>Conference Championships</div>
-            <div>Score of the Last Tournament Game Played</div>
+        <main class="column box1">
+            <div class="column">
+                <h2 class="has-text-centered">Selected Team</h2>
+                <!-- <img src="placeholder" alt="placeholder for the NCAA tourney gif"> -->
+                <img src="./assets/images/Wireframe mockup.jpg" alt="placeholder">
+            </div>
+
+            <div class="columns">
+                <div class="column subtitle box1">
+                    <p class="subtitle has-text-centered">Conference C</p>
+                    <p>placeholder text to see how everything will fit</p>
+                </div>
+                <div class="column subtitle box1">
+                    <p class="subtitle has-text-centered">Conference Championships</p>
+                    <p>placeholder text to see how everything will fit</p>
+                </div>
+                <div class="column subtitle box1">
+                    <p class="subtitle has-text-centered">Score of the Last Tournament Game Played</p>
+                    <p>placeholder text to see how everything will fit</p>
+                </div>
+                
+            </div>
+            <!-- modal start -->
+            <div class=" column box1">Modal for teams with no history in the tournament</div>
+            <!-- modal end -->
 
         </main>
         <!-- hero end -->
+        
 
-        <!-- modal start -->
-        <div>Modal for teams with no history in the tournament</div>
-        <!-- modal end -->
-
-        <!-- chiron start -->
-        <div class="chiron">
-            Lorem ipsum dolor sit amet consectetur.
-        </div>
-        <!-- chiron end -->
+        
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
