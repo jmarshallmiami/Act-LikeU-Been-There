@@ -18,7 +18,7 @@
             <img src="placeholder" alt="NCAA Logo placeholder"> -->
         </header> 
 
-        <div class="column box1 is-one-third m-2 box">
+        <div class="columns box1 is-one-third m-2 box">
             <!-- option start start -->
             <section class="container control m-2">
                 <label for="college-team">Who's Your Favorite NBA Basketball Team?</label>
@@ -26,7 +26,7 @@
                 <div class="select is-primary is-rounded m-2">
                     <select class="team-select"></select>
                 </div>
-                <button class="button is-primary is-rounded m-4">Submit</button>
+                <button class="button is-primary is-rounded m-1">Submit</button>
             </section>
         </div>
         <!-- input end -->
@@ -63,6 +63,32 @@
 
         </main>
         <!-- hero end -->
+        <!--Modal below will run when the page starts to give instructions-->
+        <!--The close class will be used to remove is-active class from the modal to close the modal-->
+        <div class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+              <header class="modal-card-head">
+                <p class="modal-card-title">Welcome to our (Placeholder)</p>
+                <button class="delete is-medium close" aria-label="close"></button>
+              </header>
+                <section class="modal-card-body">
+                    <p class="title">Instructions</p>
+                    <p class="block"> The dropdown menu has a list of all the current NBA teams; 
+                        select the team that you are interested in.</p>
+                    <div class="block">
+                        <p class="mb-1">Hit the submit button to view the given stats</p>
+                        <li>Placeholder 1</li>
+                        <li>Placeholder 2</li>
+                        <li>Placeholder 3</li>
+                    </div>
+                    <p class="block">Your recent searches will be displayed below the submit button.</p>
+                </section>
+              <footer class="modal-card-foot">
+                <button class="button is-success close">Close</button>
+              </footer>
+            </div>
+          </div>
         
 
         

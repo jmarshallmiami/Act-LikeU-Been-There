@@ -42,4 +42,5 @@ fetch(teamNames).then(function (response) {
   
   
   // create clickable select elements that triggers functions to pull years in the playoff and championships
+  
 submitButton.addEventListener("click", chooseTeam, submitButton)
