@@ -4,6 +4,8 @@ var selectTeamObject = document.querySelector(".team-select");
 var submitButton = document.querySelector("section button");
 
 
+
+
 //fetch all NBA team names from balldontlie
 fetch(teamNames).then(function (response) {
   // request was successful
@@ -19,7 +21,6 @@ fetch(teamNames).then(function (response) {
       var teamID = team[i].id;
       teamNamesEl.setAttribute("value", teamID);
       teamNamesEl.innerHTML = team[i].full_name
-      console.log(teamNamesEl)
       selectTeamObject.appendChild(teamNamesEl)
     };
     
@@ -27,7 +28,8 @@ fetch(teamNames).then(function (response) {
   
   // choose team function
   var chooseTeam = function(){
-    console.log("select")
+    var teamSelected = document.querySelector("option").textContent;
+    console.log(teamSelected);
   };
   // fetch all years seasons available for selected team and search for "Postseason" etc. to index which years the team has reached the post season in an array
   // fetch(selectedTeam).then(function (response) {
@@ -43,6 +45,4 @@ fetch(teamNames).then(function (response) {
   
   
   // create clickable select elements that triggers functions to pull years in the playoff and championships
-
-  
-submitButton.addEventListener("click", chooseTeam, submitButton)
+submitButton.addEventListener("click", chooseTeam)
