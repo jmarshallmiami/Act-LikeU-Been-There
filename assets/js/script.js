@@ -1,5 +1,6 @@
-var teamNames = "https://www.balldontlie.io/api/v1/teams"
-var seasonGames = "https://www.balldontlie.io/api/v1/games?seasons[]=2018&team_ids[]=6&per_page=100"
+var team = {};
+var teamNames = "https://www.balldontlie.io/api/v1/teams";
+var seasonGames = "https://www.balldontlie.io/api/v1/games?seasons[]=2018&team_ids[]=6&per_page=100";
 var selectTeamObject = document.querySelector(".team-select");
 var submitButton = document.querySelector("section button");
 
@@ -23,26 +24,15 @@ fetch(teamNames).then(function (response) {
       teamNamesEl.innerHTML = team[i].full_name
       selectTeamObject.appendChild(teamNamesEl)
     };
-    
-  });
-  
-  // choose team function
-  var chooseTeam = function(){
-    var teamSelected = document.querySelector("option").textContent;
-    console.log(teamSelected);
-  };
-  // fetch all years seasons available for selected team and search for "Postseason" etc. to index which years the team has reached the post season in an array
-  // fetch(selectedTeam).then(function (response) {
-  // // request was successful
-  //   if (response.ok) {
-  //     return response.json();
-  //   }
-  // })
-  //   .then(function (allSeasons) {
-      
 
-  //   });
-  
-  
-  // create clickable select elements that triggers functions to pull years in the playoff and championships
+  });
+
+// choose team function
+var chooseTeam = function () {
+  var teamSelected = document.querySelector("option").textContent;
+  console.log(teamSelected);
+};
+
+// create clickable select elements that triggers functions to pull years in the playoff and championships
 submitButton.addEventListener("click", chooseTeam)
+
