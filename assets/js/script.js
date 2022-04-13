@@ -2,32 +2,33 @@ var team = [];
 var teamNames = "https://www.balldontlie.io/api/v1/teams";
 var teamSeasonGames = "https://www.balldontlie.io/api/v1/games?seasons[]=2011&team_ids[]=1&per_page=100"
 var selectTeamObject = document.querySelector(".team-select");
+var yearSelectObject = document.querySelector(".year-select");
 var submitButton = document.querySelector("section button");
 
 var submitHandler = function (event) {
   event.preventDefault();
 };
 
-// create the select dropdown for all years 1979-2021
-// for (var i = 0; i < 2021; i++) {
-//   var yearAvailableEl = document.createElement(".team-select");
-//   console.log(yearAvailableEl);
-//   yearAvailableEl.setAttribute("value", teamID);
-//   yearAvailableEl.innerHTML = teamData[i].full_name
-//   selectTeamObject.appendChild(yearAvailableEl)
-//   team[i] = {
-//     id: teamData[i].id,
-//     name: teamData[i].full_name
-//   }
-// };
+// click submit button and collect user inputs
+$(".button.is-info.is-rounded").click(function () {
+  console.log("clicked");
+});
+
+for (i = 1979; i < 2022; i++) {
+var yearOption = document.createElement("option")
+yearOption.setAttribute("value", i)
+yearOption.innerHTML = i;
+yearSelectObject.appendChild(yearOption)
+};
+
 
 // create dropdown list of teams for available to check the year and record (30 teams available)
 fetch(teamNames).then(function (response) {
-    // request was successful
-    if (response.ok) {
-      return response.json();
-    }
-  })
+  // request was successful
+  if (response.ok) {
+    return response.json();
+  }
+})
   .then(function (data) {
     var teamData = data.data
 
@@ -43,15 +44,15 @@ fetch(teamNames).then(function (response) {
         name: teamData[i].full_name
       }
     };
-});
+  });
 
 //fetch all available game scores for each year
 fetch(teamSeasonGames).then(function (response) {
-    // request was successful
-    if (response.ok) {
-      return response.json();
-    }
-  })
+  // request was successful
+  if (response.ok) {
+    return response.json();
+  }
+})
   .then(function (data) {
     // win, loss, tie object for team record
     var record = {
@@ -60,7 +61,9 @@ fetch(teamSeasonGames).then(function (response) {
       tie: 0
     };
 
+    console.log(data.data.length);
     for (var i = 0; i < data.data.length; i++) {
+
       // setting variable for the selected team id to compare to home or away score
       var homeScore = data.data[i].home_team_score;
       var visitorScore = data.data[i].visitor_team_score;
@@ -83,15 +86,10 @@ fetch(teamSeasonGames).then(function (response) {
         record.loss = record.loss + 1;
       }
     };
-    console.log(record);
     return record;
-});
 
+  });
 
-
-
-// create clickable select elements that triggers functions to pull years in the playoff and championships
-// submitButton.addEventListener("click", chooseTeam)
 
 // FUNCTION: modal close button
 
@@ -118,5 +116,3 @@ fetch(teamSeasonGames).then(function (response) {
 
 //     // close modal
 //     $("#task-form-modal").modal("hide");
-
-
