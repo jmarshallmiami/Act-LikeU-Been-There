@@ -9,17 +9,17 @@ var submitHandler = function (event) {
 };
 
 // create the select dropdown for all years 1979-2021
-for (var i = 0; i < 2021; i++) {
-  var yearAvailableEl = document.createElement(".team-select");
-  console.log()
-  yearAvailableEl.setAttribute("value", teamID);
-  yearAvailableEl.innerHTML = teamData[i].full_name
-  selectTeamObject.appendChild(yearAvailableEl)
-  team[i] = {
-    id: teamData[i].id,
-    name: teamData[i].full_name
-  }
-};
+// for (var i = 0; i < 2021; i++) {
+//   var yearAvailableEl = document.createElement(".team-select");
+//   console.log(yearAvailableEl);
+//   yearAvailableEl.setAttribute("value", teamID);
+//   yearAvailableEl.innerHTML = teamData[i].full_name
+//   selectTeamObject.appendChild(yearAvailableEl)
+//   team[i] = {
+//     id: teamData[i].id,
+//     name: teamData[i].full_name
+//   }
+// };
 
 // create dropdown list of teams for available to check the year and record (30 teams available)
 fetch(teamNames).then(function (response) {
