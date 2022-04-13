@@ -8,12 +8,10 @@ var submitHandler = function (event) {
   event.preventDefault();
 };
 
-$("")
-
-// // create the select dropdown for all years 1979-2021
+// create the select dropdown for all years 1979-2021
 // for (var i = 0; i < 2021; i++) {
 //   var yearAvailableEl = document.createElement(".team-select");
-//   console.log()
+//   console.log(yearAvailableEl);
 //   yearAvailableEl.setAttribute("value", teamID);
 //   yearAvailableEl.innerHTML = teamData[i].full_name
 //   selectTeamObject.appendChild(yearAvailableEl)
