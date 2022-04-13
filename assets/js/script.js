@@ -8,18 +8,20 @@ var submitHandler = function (event) {
   event.preventDefault();
 };
 
-// create the select dropdown for all years 1979-2021
-for (var i = 0; i < 2021; i++) {
-  var yearAvailableEl = document.createElement(".team-select");
-  console.log()
-  yearAvailableEl.setAttribute("value", teamID);
-  yearAvailableEl.innerHTML = teamData[i].full_name
-  selectTeamObject.appendChild(yearAvailableEl)
-  team[i] = {
-    id: teamData[i].id,
-    name: teamData[i].full_name
-  }
-};
+$("")
+
+// // create the select dropdown for all years 1979-2021
+// for (var i = 0; i < 2021; i++) {
+//   var yearAvailableEl = document.createElement(".team-select");
+//   console.log()
+//   yearAvailableEl.setAttribute("value", teamID);
+//   yearAvailableEl.innerHTML = teamData[i].full_name
+//   selectTeamObject.appendChild(yearAvailableEl)
+//   team[i] = {
+//     id: teamData[i].id,
+//     name: teamData[i].full_name
+//   }
+// };
 
 // create dropdown list of teams for available to check the year and record (30 teams available)
 fetch(teamNames).then(function (response) {
@@ -70,10 +72,10 @@ fetch(teamSeasonGames).then(function (response) {
       var visitorTeamId = data.data[i].visitor_team.id;
 
       //  did the team picked win, lose or tie in this game
-      if (homeTeamId === team[7].id && homeScore > visitorScore) {
+      if (homeTeamId === team[1].id && homeScore > visitorScore) {
         record.win = record.win + 1;
       }
-      else if (visitorTeamId === team[7].id && visitorScore > homeScore) {
+      else if (visitorTeamId === team[1].id && visitorScore > homeScore) {
         record.win = record.win + 1;
       }
       else if (visitorScore === homeScore) {
@@ -85,7 +87,6 @@ fetch(teamSeasonGames).then(function (response) {
     };
     console.log(record);
     return record;
-
 });
 
 
