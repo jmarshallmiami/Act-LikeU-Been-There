@@ -1,3 +1,4 @@
+var team = [];
 var teamNames = "https://www.balldontlie.io/api/v1/teams";
 var teamSeasonGames = "https://www.balldontlie.io/api/v1/games?seasons[]=1979&team_ids[]=8&per_page=100"
 var selectTeamObject = document.querySelector(".team-select");
@@ -5,7 +6,7 @@ var submitButton = document.querySelector("section button");
 
 var submitHandler = function(event) {
   event.preventDefault();
-}
+};
 
 fetch(teamNames).then(function (response) {
   // request was successful
@@ -16,6 +17,7 @@ fetch(teamNames).then(function (response) {
   .then(function (data) {
     var teamData = data.data
     
+    // dynamically generates select element options with names that are in the 
     for (var i = 0; i < teamData.length; i++) {
       var teamNamesEl = document.createElement("option");
       var teamID = teamData[i].id;
@@ -56,7 +58,30 @@ fetch(teamSeasonGames)
 // create clickable select elements that triggers functions to pull years in the playoff and championships
 // submitButton.addEventListener("click", chooseTeam)
 
-// FUNCTION: retreive team name and id from select HTML element options
+// FUNCTION: modal close button
 
-// FUNCTION: 
+// // modal was triggered
+// $("#task-form-modal").on("show.bs.modal", function () {
+//   // clear values
+//   $("#modalTaskDescription, #modalDueDate").val("");
+// });
+
+// // modal is fully visible
+// $("#task-form-modal").on("shown.bs.modal", function () {
+//   // highlight textarea
+//   $("#modalTaskDescription").trigger("focus");
+// });
+
+// // save button in modal was clicked
+// $("#task-form-modal .btn-primary").click(function () {
+//   // get form values
+//   var taskText = $("#modalTaskDescription").val();
+//   var taskDate = $("#modalDueDate").val();
+
+//   if (taskText && taskDate) {
+//     createTask(taskText, taskDate, "toDo");
+
+//     // close modal
+//     $("#task-form-modal").modal("hide");
+
 
