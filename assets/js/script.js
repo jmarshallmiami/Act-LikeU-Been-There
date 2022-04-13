@@ -3,6 +3,9 @@ var seasonGames = "https://www.balldontlie.io/api/v1/games?seasons[]=2018&team_i
 var selectTeamObject = document.querySelector(".team-select");
 var submitButton = document.querySelector("section button");
 
+var submitHandler = function(event) {
+  event.preventDefault();
+}
 
 
 
