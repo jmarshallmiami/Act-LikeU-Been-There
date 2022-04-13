@@ -25,13 +25,11 @@ submitButton.onclick = myFunction;
 function myFunction() {
   selectedTeam = document.querySelector(".team-select").value;
   selectedYear = document.querySelector(".year-select").value;
-  console.log(selectedTeam, selectedYear);
+  // updated template literal values are passed into api
   teamSeasonGames = `https://www.balldontlie.io/api/v1/games?seasons[]=${selectedYear}&team_ids[]=${selectedTeam}&per_page=100`;
   console.log(teamSeasonGames);
 
 };
-
-
 
 
 for (i = 1979; i < 2022; i++) {
