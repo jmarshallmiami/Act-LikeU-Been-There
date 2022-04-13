@@ -16,10 +16,7 @@ function myFunction() {
   var selectedTeam = document.querySelector(".team-select").value;
   var selectedYear = document.querySelector(".year-select").value;
   console.log(selectedTeam, selectedYear);
-
 };
-
-
 
 
 for (i = 1979; i < 2022; i++) {
