@@ -1,22 +1,23 @@
 var team = [];
 var teamNames = "https://www.balldontlie.io/api/v1/teams";
-var teamSeasonGames = "https://www.balldontlie.io/api/v1/games?seasons[]=1979&team_ids[]=8&per_page=100"
+var teamSeasonGames = "https://www.balldontlie.io/api/v1/games?seasons[]=2011&team_ids[]=1&per_page=100"
 var selectTeamObject = document.querySelector(".team-select");
 var submitButton = document.querySelector("section button");
 
-var submitHandler = function(event) {
+var submitHandler = function (event) {
   event.preventDefault();
 };
 
+
 fetch(teamNames).then(function (response) {
-  // request was successful
-  if (response.ok) {
-    return response.json();
-  }
-})
+    // request was successful
+    if (response.ok) {
+      return response.json();
+    }
+  })
   .then(function (data) {
     var teamData = data.data
-    
+
     // dynamically generates select element options with names that are in the 
     for (var i = 0; i < teamData.length; i++) {
       var teamNamesEl = document.createElement("option");
@@ -24,35 +25,57 @@ fetch(teamNames).then(function (response) {
       teamNamesEl.setAttribute("value", teamID);
       teamNamesEl.innerHTML = teamData[i].full_name
       selectTeamObject.appendChild(teamNamesEl)
+      team[i] = {
+        id: teamData[i].id,
+        name: teamData[i].full_name
+      }
     };
-  });
+});
 
 //fetch all available game scores for each year
-fetch(teamSeasonGames)
-  .then(function (response) {
+fetch(teamSeasonGames).then(function (response) {
     // request was successful
     if (response.ok) {
       return response.json();
     }
   })
   .then(function (data) {
-    for (var i = 0; i < 3 /*data.data.length*/; i++) {
-      // setting variable for the selected team id to compare to home or away score
-      var homeScore = data.data[i].home_team_score 
-      var visitorScore = data.data[i].visitor_team_score
-      
-      // setting variable for the selected team id to compare to home or away team id
-      var homeTeamId = data.data[i].home_team.id
-      var visitorTeamId = data.data[i].visitor_team.id
-
-
-      console.log(homeTeamId);
-      console.log(visitorTeamId)
-      console.log(data.data[i]);
+    // win, loss, tie object for team record
+    var record = {
+      win: 0,
+      loss: 0,
+      tie: 0
     };
 
+    for (var i = 0; i < data.data.length; i++) {
+      // setting variable for the selected team id to compare to home or away score
+      var homeScore = data.data[i].home_team_score;
+      var visitorScore = data.data[i].visitor_team_score;
 
-  });
+      // setting variable for the selected team id to compare to home or away team id
+      var homeTeamId = data.data[i].home_team.id;
+      var visitorTeamId = data.data[i].visitor_team.id;
+
+      console.log(homeTeamId, visitorTeamId);
+      console.log(homeScore, visitorScore);
+
+      //  did the team picked win, lose or tie in this game
+      if (homeTeamId === team[7].id && homeScore > visitorScore) {
+        record.win = record.win + 1;
+      }
+      else if (visitorTeamId === team[7].id && visitorScore > homeScore) {
+        record.win = record.win + 1;
+      }
+      else if (visitorScore === homeScore) {
+        record.tie = record.tie + 1;
+      }
+      else {
+        record.loss = record.loss + 1;
+      }
+    };
+    console.log(record);
+    return record;
+});
 
 
 // create clickable select elements that triggers functions to pull years in the playoff and championships
