@@ -3,7 +3,10 @@ var teamSeasonGames = "https://www.balldontlie.io/api/v1/games?seasons[]=1979&te
 var selectTeamObject = document.querySelector(".team-select");
 var submitButton = document.querySelector("section button");
 
-// //fetch all NBA team names from balldontlie
+var submitHandler = function(event) {
+  event.preventDefault();
+}
+
 fetch(teamNames).then(function (response) {
   // request was successful
   if (response.ok) {
@@ -11,8 +14,8 @@ fetch(teamNames).then(function (response) {
   }
 })
   .then(function (data) {
-    var teamData = data.data;
-
+    var teamData = data.data
+    
     for (var i = 0; i < teamData.length; i++) {
       var teamNamesEl = document.createElement("option");
       var teamID = teamData[i].id;
