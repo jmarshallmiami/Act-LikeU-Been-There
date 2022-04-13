@@ -1,6 +1,16 @@
+//object for the team to house id and full name 
 var team = [];
+
+// template literals placeholder values
+var selectedTeam = 0;
+var selectedYear = 0;
+
+// api request for an array of all available team objects for full name generation
 var teamNames = "https://www.balldontlie.io/api/v1/teams";
+// placeholder for api call for specific team for a specific year
 var teamSeasonGames = `https://www.balldontlie.io/api/v1/games?seasons[]=${selectedYear}&team_ids[]=${selectedTeam}&per_page=100`;
+
+// select html elements
 var selectTeamObject = document.querySelector(".team-select");
 var yearSelectObject = document.querySelector(".year-select");
 
@@ -13,9 +23,11 @@ var submitButton = document.querySelector(".button.is-info.is-rounded.m-1");
 submitButton.onclick = myFunction;
 
 function myFunction() {
-  var selectedTeam = document.querySelector(".team-select").value;
-  var selectedYear = document.querySelector(".year-select").value;
+  selectedTeam = document.querySelector(".team-select").value;
+  selectedYear = document.querySelector(".year-select").value;
   console.log(selectedTeam, selectedYear);
+  teamSeasonGames = `https://www.balldontlie.io/api/v1/games?seasons[]=${selectedYear}&team_ids[]=${selectedTeam}&per_page=100`;
+  console.log(teamSeasonGames);
 
 };
 
@@ -23,10 +35,10 @@ function myFunction() {
 
 
 for (i = 1979; i < 2022; i++) {
-var yearOption = document.createElement("option")
-yearOption.setAttribute("value", i)
-yearOption.innerHTML = i;
-yearSelectObject.appendChild(yearOption)
+  var yearOption = document.createElement("option")
+  yearOption.setAttribute("value", i)
+  yearOption.innerHTML = i;
+  yearSelectObject.appendChild(yearOption)
 };
 
 
