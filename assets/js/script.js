@@ -8,7 +8,20 @@ var submitHandler = function (event) {
   event.preventDefault();
 };
 
+// create the select dropdown for all years 1979-2021
+for (var i = 0; i < 2021; i++) {
+  var yearAvailableEl = document.createElement(".team-select");
+  console.log()
+  yearAvailableEl.setAttribute("value", teamID);
+  yearAvailableEl.innerHTML = teamData[i].full_name
+  selectTeamObject.appendChild(yearAvailableEl)
+  team[i] = {
+    id: teamData[i].id,
+    name: teamData[i].full_name
+  }
+};
 
+// create dropdown list of teams for available to check the year and record (30 teams available)
 fetch(teamNames).then(function (response) {
     // request was successful
     if (response.ok) {
@@ -56,9 +69,6 @@ fetch(teamSeasonGames).then(function (response) {
       var homeTeamId = data.data[i].home_team.id;
       var visitorTeamId = data.data[i].visitor_team.id;
 
-      console.log(homeTeamId, visitorTeamId);
-      console.log(homeScore, visitorScore);
-
       //  did the team picked win, lose or tie in this game
       if (homeTeamId === team[7].id && homeScore > visitorScore) {
         record.win = record.win + 1;
@@ -75,7 +85,10 @@ fetch(teamSeasonGames).then(function (response) {
     };
     console.log(record);
     return record;
+
 });
+
+
 
 
 // create clickable select elements that triggers functions to pull years in the playoff and championships
