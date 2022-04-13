@@ -1,18 +1,26 @@
 var team = [];
 var teamNames = "https://www.balldontlie.io/api/v1/teams";
-var teamSeasonGames = "https://www.balldontlie.io/api/v1/games?seasons[]=2011&team_ids[]=1&per_page=100"
+var teamSeasonGames = `https://www.balldontlie.io/api/v1/games?seasons[]=${selectedYear}&team_ids[]=${selectedTeam}&per_page=100`;
 var selectTeamObject = document.querySelector(".team-select");
 var yearSelectObject = document.querySelector(".year-select");
-var submitButton = document.querySelector("section button");
 
 var submitHandler = function (event) {
   event.preventDefault();
 };
 
 // click submit button and collect user inputs
-$(".button.is-info.is-rounded").click(function () {
-  console.log("clicked");
-});
+var submitButton = document.querySelector(".button.is-info.is-rounded.m-1");
+submitButton.onclick = myFunction;
+
+function myFunction() {
+  var selectedTeam = document.querySelector(".team-select").value;
+  var selectedYear = document.querySelector(".year-select").value;
+  console.log(selectedTeam, selectedYear);
+
+};
+
+
+
 
 for (i = 1979; i < 2022; i++) {
 var yearOption = document.createElement("option")
@@ -61,7 +69,6 @@ fetch(teamSeasonGames).then(function (response) {
       tie: 0
     };
 
-    console.log(data.data.length);
     for (var i = 0; i < data.data.length; i++) {
 
       // setting variable for the selected team id to compare to home or away score
