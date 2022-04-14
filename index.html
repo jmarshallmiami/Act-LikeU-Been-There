@@ -23,12 +23,12 @@
             <section class="column ">
                 <div class="columns"><label for="team-select">Who's Your Favorite NBA Basketball Team?</label></div>
                 <div class="select is-info is-rounded m-2">
-                    <select class="team-select"></select>
+                    <select title="name" class="team-select"></select>
                 </div>
             
-                <div class="columns mt-5"><label for=" year-select">What year would you like to see?</label></div>
+                <div class="columns mt-3"><label for=" year-select">What year would you like to see?</label></div>
                 <div class="select is-info is-rounded m-2">
-                    <select class="year-select">year</select>
+                    <select title="name" class="year-select">year</select>
                 </div>
                 <div class=" mt-2">
                     <button class="button is-info is-rounded m-1">Submit</button>
@@ -81,12 +81,14 @@
                         select the team and year that you are interested in.</p>
                     <div class="block">
                         <p class="mb-1">Hit the submit button to view the given information:</p>
-                        <li>The NBA logo for the team you selected.</li>
-                        <li>The year that you are Requesting.</li>
-                        <li>Regular Season Record.</li>
-                        <li>Playoff Record.</li>
+                        <ul>
+                            <li>The NBA logo for the team you selected.</li>
+                            <li>The year that you are Requesting.</li>
+                            <li>Regular Season Record.</li>
+                            <li>Playoff Record.</li>
+                        </ul>
                     </div>
-                    <p class="block">*Clicking on the header will bring back these instructions*</p>
+                    <p class="block has-text-danger has-text-centered">*Clicking on the header will bring back these instructions*</p>
                 </section>
               <footer class="modal-card-foot">
                 <button class="button is-success close">Close</button>
