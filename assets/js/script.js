@@ -56,7 +56,6 @@ function clickFunction() {
 
       // replace NBA logo with funny gif while data is loading for 10 seconds
       var imageLogoOveride = document.getElementById("team-logo");
-
       imageLogoOveride.setAttribute("src", giphyGif);
     });
 
@@ -73,14 +72,14 @@ function clickFunction() {
       .then(function (data) {
         var giphyGif = data.data.images.original.url;
 
-        // replace NBA logo with funny gif while data is loading for 10 seconds
+        // replace NBA logo with funny gif while data is loading for 4 seconds
         var imageLogoOveride = document.getElementById("team-logo");
-
         imageLogoOveride.setAttribute("src", giphyGif);
+    
         // function to display team logo
         imageLogoOveride.setAttribute("src", "./assets/Logo/" + selectedTeam + ".png");
       });
-  }
+  };
 
 
 
@@ -151,11 +150,13 @@ function clickFunction() {
         };
       };
 
-      // display the year with the 
-
+      // 
       var yearChosen = document.getElementById("year-chosen");
       var yearRegularSeason = document.getElementById("regular-season");
       var yearPlayoff = document.getElementById("playoffs");
+
+      // display the selected year in box below logo
+      yearChosen.innerHTML = "Year:     " + selectedYear;
 
 
       // if the team had a winning regular season record display as green and red if they had a losing record
@@ -175,7 +176,7 @@ function clickFunction() {
         console.log(record);
         console.log(yearRegularSeason);
       };
-      
+
       // if the team had a winning regular season record display as green and red if they had a losing record
       if (playoffRecord.win >= playoffRecord.loss) {
         yearPlayoff.className = "has-text-success";
@@ -187,7 +188,7 @@ function clickFunction() {
         yearPlayoff.innerHTML = playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
         console.log(playoffRecord);
       }
-      else if (record.win > 0 || record.loss > 0 || record.tie > 0 && playoffRecord.win === 0 && playoffRecord.loss=== 0 && playoffRecord.tie=== 0) {
+      else if (record.win > 0 || record.loss > 0 || record.tie > 0 && playoffRecord.win === 0 && playoffRecord.loss === 0 && playoffRecord.tie === 0) {
         console.log("No Playoff for you this year! :(");
         console.log(playoffRecord);
       }
