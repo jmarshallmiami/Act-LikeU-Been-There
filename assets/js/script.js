@@ -13,18 +13,14 @@ var submitHandler = function (event) {
   event.preventDefault();
 };
 
-// close modal button that closes modal and reopens if user clicks on the header
-function closeModal() {
-  $(".close").click(function () {
-    $(".open").removeClass("is-active")
-    $(".open-modal").click(function () {
-      $(".open").addClass("is-active")
-    })
+function closeModal() {$(".close").click(function(){
+  $(".open").removeClass("is-active")
+  $(".open-modal").click(function(){
+    $(".open").addClass("is-active")
   })
+})
 };
 closeModal();
-
-function pullGif
 
 // click submit button and collect user inputs
 var submitButton = document.querySelector(".button.is-info.is-rounded.m-1");
@@ -38,30 +34,12 @@ function clickFunction() {
   // updated template literal values are passed into api
   var teamSeasonGames = `https://www.balldontlie.io/api/v1/games?seasons[]=${selectedYear}&team_ids[]=${selectedTeam}&per_page=110`;
 
-  //
   function displayTeamName(value) {
     var teamPlaceholder = document.querySelector("h2.has-text-centered.title");
     teamPlaceholder.innerHTML = team[value - 1].name;
 
   };
   displayTeamName(selectedTeam);
-
-  //loading screen with giphy gif
-  var giphyUrl = "https://api.giphy.com/v1/gifs/3o7aTnQqygA3TcukFi?api_key=mC5x9iaiIAu1vTZWk1WuVU6xy8fWfhLS";
-  console.log(giphyUrl)
-  fetch(giphyUrl).then(function (response) {
-    if (response.ok) {
-      return response.json();
-    }
-  })
-    .then(function (data) {
-      var giphyGif = data.data.images.original.url;
-
-      // replace NBA logo with funny gif while data is loading for 10 seconds
-      var imageLogoOveride = document.getElementById("team-logo");
-
-      imageLogoOveride.setAttribute("src", giphyGif);
-    });
 
   //fetch all available game scores for the selected year
   fetch(teamSeasonGames).then(function (response) {
@@ -135,46 +113,50 @@ function clickFunction() {
       var yearRegularSeason = document.getElementById("regular-season");
       var yearPlayoff = document.getElementById("playoffs");
 
-      // year element displayed under logo
-      yearChosen.innerHTML = "Year:     " + selectedYear;
-
-      // creating 
-      yearRegularSeason.innerHTML = record.win + " - " + record.loss + " - " + record.tie;
-      yearPlayoff.innerHTML = playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
-
-      // if the team had a winning regular season record display as green and lossing recond as red
+      // if the team had a winning regular season record display as green
       if (record.win >= record.loss) {
-        yearRegularSeason.className = "has-text-success";
+        yearRegularSeason.innerHTML = record.win + " - " + record.loss + " - " + record.tie;
       }
       else {
-        yearRegularSeason.className = "has-text-danger";
+        yearPlayoff.innerHTML = playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
       };
 
       // if the team had a winning playoff record display is as green
-      if (playoffRecord.win === 0 && playoffRecord.loss === 0) {
-        yearPlayoff.className = "has-text-danger";
-        yearPlayoff.innerHTML = "Too Bad No Playoffs!!";
-
-      }
-      else if (playoffRecord.win >= playoffRecord.loss) {
-        yearPlayoff.className = "has-text-success";
+      if (playoffRecord.win >= playoffRecord.loss) {
+        yearPlayoff.innerHTML = playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
       }
       else {
-        yearPlayoff.className = "has-text-danger";
-      };
+        yearPlayoff.innerHTML = playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
+      }
     });
 };
 
 
 
-
 // generating dropdown list for years 
+
 for (i = 1979; i < 2022; i++) {
   var yearOption = document.createElement("option")
   yearOption.setAttribute("value", i)
   yearOption.innerHTML = i;
   yearSelectObject.appendChild(yearOption)
 };
+
+    // var myURL = "https://media3.giphy.com/media/3o7aTnQqygA3TcukFi/giphy-preview.gif";
+    // fetch(myURL).then(function(response){
+    //   return response.json();
+    // }
+    // .then(function(steelers) {
+    //   var giphyUrl = steelers.data.images; 
+    //   console.log(giphyUrl);
+    // }));
+    
+    
+    // var imageEl = document.querySelector("#team-logo");
+    
+    
+   
+
 
 // create dropdown list of teams for available to check the year and record (30 teams available)
 fetch(teamNames).then(function (response) {
@@ -199,5 +181,3 @@ fetch(teamNames).then(function (response) {
       }
     };
   });
-
-
