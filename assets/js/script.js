@@ -114,6 +114,21 @@ function myFunction() {
       };
     });
 
+    var myURL = "https://media3.giphy.com/media/3o7aTnQqygA3TcukFi/giphy-preview.gif";
+    fetch(myURL).then(function(response){
+      return response.json();
+    }
+    .then(function(steelers) {
+      var giphyUrl = steelers.data.images; 
+      console.log(giphyUrl);
+    }));
+    
+    
+    var imageEl = document.querySelector("#team-logo");
+    
+    
+   
+
 
 // FUNCTION: modal close button
 
