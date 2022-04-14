@@ -13,6 +13,15 @@ var submitHandler = function (event) {
   event.preventDefault();
 };
 
+function closeModal() {$(".close").click(function(){
+  $(".open").removeClass("is-active")
+  $(".open-modal").click(function(){
+    $(".open").addClass("is-active")
+  })
+})
+};
+closeModal();
+
 // click submit button and collect user inputs
 var submitButton = document.querySelector(".button.is-info.is-rounded.m-1");
 submitButton.onclick = clickFunction;
@@ -53,7 +62,6 @@ function clickFunction() {
         tie: 0
       };
 
-      console.log(data.data.length);
       for (var i = 0; i < data.data.length; i++) {
         // checks if a game was a playoff or regular season game
         var postSeasonBoolean = data.data[i].postseason;
@@ -67,23 +75,24 @@ function clickFunction() {
         var visitorTeamId = data.data[i].visitor_team.id;
 
         // playoff record
-        // if (postSeasonBoolean = true) {
-        //   //  did the team win, lose or tie in this game
-        //   if (homeTeamId === team[selectedTeam - 1].id && homeScore > visitorScore) {
-        //     playoffRecord.win = playoffRecord.win + 1;
-        //   }
-        //   else if (visitorTeamId === team[selectedTeam - 1].id && visitorScore > homeScore) {
-        //     playoffRecord.win = playoffRecord.win + 1;
-        //   }
-        //   else if (visitorScore === homeScore) {
-        //     playoffRecord.tie = playoffRecord.tie + 1;
-        //   }
-        //   else {
-        //     playoffRecord.loss = playoffRecord.loss + 1;
-        //   };
-        // }
+        if (postSeasonBoolean = true) {
+          //  did the team win, lose or tie in this game
+          if (homeTeamId === team[selectedTeam - 1].id && homeScore > visitorScore) {
+            playoffRecord.win = playoffRecord.win + 1;
+          }
+          else if (visitorTeamId === team[selectedTeam - 1].id && visitorScore > homeScore) {
+            playoffRecord.win = playoffRecord.win + 1;
+          }
+          else if (visitorScore === homeScore) {
+            playoffRecord.tie = playoffRecord.tie + 1;
+          }
+          else {
+            playoffRecord.loss = playoffRecord.loss + 1;
+          };
+        };
+
         // regular season record
-      if (!postSeasonBoolean) {
+        if (!postSeasonBoolean) {
           //  did the team picked win, lose or tie in this game
           if (homeTeamId === team[selectedTeam - 1].id && homeScore > visitorScore) {
             record.win = record.win + 1;
@@ -95,13 +104,30 @@ function clickFunction() {
             record.tie = record.tie + 1;
           }
           else {
-            console.log(homeTeamId, visitorTeamId, "me:" + team[selectedTeam-1].id);
-            console.log(homeScore, visitorScore);
             record.loss = record.loss + 1;
-          }
+          };
         };
       };
-      console.log(record.win, record.loss);
+
+      var yearChosen = document.getElementById("year-chosen");
+      var yearRegularSeason = document.getElementById("regular-season");
+      var yearPlayoff = document.getElementById("playoffs");
+
+      // if the team had a winning regular season record display as green
+      if (record.win >= record.loss) {
+        yearRegularSeason.innerHTML = record.win + " - " + record.loss + " - " + record.tie;
+      }
+      else {
+        yearPlayoff.innerHTML = playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
+      };
+
+      // if the team had a winning playoff record display is as green
+      if (playoffRecord.win >= playoffRecord.loss) {
+        yearPlayoff.innerHTML = playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
+      }
+      else {
+        yearPlayoff.innerHTML = playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
+      }
     });
 };
 
@@ -116,17 +142,17 @@ for (i = 1979; i < 2022; i++) {
   yearSelectObject.appendChild(yearOption)
 };
 
-    var myURL = "https://media3.giphy.com/media/3o7aTnQqygA3TcukFi/giphy-preview.gif";
-    fetch(myURL).then(function(response){
-      return response.json();
-    }
-    .then(function(steelers) {
-      var giphyUrl = steelers.data.images; 
-      console.log(giphyUrl);
-    }));
+    // var myURL = "https://media3.giphy.com/media/3o7aTnQqygA3TcukFi/giphy-preview.gif";
+    // fetch(myURL).then(function(response){
+    //   return response.json();
+    // }
+    // .then(function(steelers) {
+    //   var giphyUrl = steelers.data.images; 
+    //   console.log(giphyUrl);
+    // }));
     
     
-    var imageEl = document.querySelector("#team-logo");
+    // var imageEl = document.querySelector("#team-logo");
     
     
    
