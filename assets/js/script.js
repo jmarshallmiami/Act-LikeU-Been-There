@@ -108,7 +108,6 @@ function myFunction() {
       };
     });
 
-
 // FUNCTION: modal close button
 
 // // modal was triggered
