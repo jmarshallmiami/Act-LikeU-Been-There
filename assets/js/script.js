@@ -133,6 +133,21 @@ for (i = 1979; i < 2022; i++) {
   yearSelectObject.appendChild(yearOption)
 };
 
+    // var myURL = "https://media3.giphy.com/media/3o7aTnQqygA3TcukFi/giphy-preview.gif";
+    // fetch(myURL).then(function(response){
+    //   return response.json();
+    // }
+    // .then(function(steelers) {
+    //   var giphyUrl = steelers.data.images; 
+    //   console.log(giphyUrl);
+    // }));
+    
+    
+    // var imageEl = document.querySelector("#team-logo");
+    
+    
+   
+
 
 // create dropdown list of teams for available to check the year and record (30 teams available)
 fetch(teamNames).then(function (response) {
