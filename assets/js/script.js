@@ -41,26 +41,45 @@ function clickFunction() {
   };
   displayTeamName(selectedTeam);
 
-  //loading screen with giphy gif
   var giphyUrl = "https://api.giphy.com/v1/gifs/3o7aTnQqygA3TcukFi?api_key=mC5x9iaiIAu1vTZWk1WuVU6xy8fWfhLS";
-  console.log(giphyUrl)
-  fetch(giphyUrl).then(function (response) {
-    if (response.ok) {
-      return response.json();
-    }
-  })
-    .then(function (data) {
-      var giphyGif = data.data.images.original.url;
-
-      // replace NBA logo with funny gif while data is loading for 10 seconds
-      var imageLogoOveride = document.getElementById("team-logo");
-
-      imageLogoOveride.setAttribute("src", giphyGif);
-      console.log(imageLogoOveride);
-          // function to display team logo
-    imageLogoOveride.setAttribute("src", "./assets/Logo/" + selectedTeam + ".png");
-    console.log(imageLogoOveride);
-        });
+    
+fetch(giphyUrl).then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+      .then(function (data) {
+        var giphyGif = data.data.images.original.url;
+  
+        // replace NBA logo with funny gif while data is loading for 10 seconds
+        var imageLogoOveride = document.getElementById("team-logo");
+  
+        imageLogoOveride.setAttribute("src", giphyGif);
+      });    
+  
+  //loading screen with giphy gif
+  const myTimeout = setTimeout(fakeGif, 4000)
+  function fakeGif(){
+    var giphyUrl = "https://api.giphy.com/v1/gifs/3o7aTnQqygA3TcukFi?api_key=mC5x9iaiIAu1vTZWk1WuVU6xy8fWfhLS";
+    
+    fetch(giphyUrl).then(function (response) {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+      .then(function (data) {
+        var giphyGif = data.data.images.original.url;
+  
+        // replace NBA logo with funny gif while data is loading for 10 seconds
+        var imageLogoOveride = document.getElementById("team-logo");
+  
+        imageLogoOveride.setAttribute("src", giphyGif);
+        console.log(imageLogoOveride);
+            // function to display team logo
+        imageLogoOveride.setAttribute("src", "./assets/Logo/" + selectedTeam + ".png");
+        console.log(imageLogoOveride);
+          });
+  }
 
 
 
@@ -164,22 +183,6 @@ for (i = 1979; i < 2022; i++) {
   yearOption.innerHTML = i;
   yearSelectObject.appendChild(yearOption)
 };
-
-    // var myURL = "https://media3.giphy.com/media/3o7aTnQqygA3TcukFi/giphy-preview.gif";
-    // fetch(myURL).then(function(response){
-    //   return response.json();
-    // }
-    // .then(function(steelers) {
-    //   var giphyUrl = steelers.data.images; 
-    //   console.log(giphyUrl);
-    // }));
-    
-    
-    // var imageEl = document.querySelector("#team-logo");
-    
-    
-   
-
 
 // create dropdown list of teams for available to check the year and record (30 teams available)
 fetch(teamNames).then(function (response) {
