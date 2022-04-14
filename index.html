@@ -18,19 +18,19 @@
 
     <div class="columns">
 
-        <div class="columns box1 is-one-third m-2 box has-background-grey-light">
+        <div class="column box1 is-one-third m-2 box has-background-grey-light">
             <!-- option start start -->
             <section class="column ">
-                <label for="team-select">Who's Your Favorite NBA Basketball Team?</label>
-                <div class="columns select is-info is-rounded m-2">
+                <div><label for="team-select">Who's Your Favorite NBA Basketball Team?</label></div>
+                <div class=" select is-info is-rounded m-2">
                     <select class="team-select"></select>
                 </div>
             
-                <label for="column year-select">What year would you like to see?</label>
-                <div class="column select is-info is-rounded m-2">
+                <div class="mt-5"><label for="column year-select">What year would you like to see?</label></div>
+                <div class=" select is-info is-rounded m-2">
                     <select class="year-select">year</select>
                 </div>
-                <div class="p-4">
+                <div class="mt-2">
                     <button class="button is-info is-rounded m-1">Submit</button>
                 </div>
             </section>
@@ -40,24 +40,23 @@
         <!-- hero start -->
         <main class="column box1 m-2 box has-background-grey-light">
             <div class="column box m-2">
-                <h2 class="has-text-centered title">Your team</h2>
+                <h2 class="has-text-centered title">What is your team?</h2>
                 
-                <figure class="image m-4">
+                <figure class="image m-6 ">
                     <!-- <img src="placeholder" alt="placeholder for the NCAA tourney gif"> -->
-                    <img id="team-logo" class="is-rounded" src="./assets/Logo/spinning basketball.gif" alt="placeholder">
+                    <img id="team-logo" class="is-rounded box1" src="./assets/Logo/spinning basketball.gif" alt="placeholder">
                 </figure>
             </div>
 
             <div class="columns m-2 box">
                 <div class=" column subtitle">
                     <div class="columns p-2 has-background-grey-light card mb-2">
-                        <div class="box1 column "><p class="subtitle ">Year: --</p></div>
+                        <div class="box1 column card"><p class="subtitle ">Year: --</p></div>
                     </div >
                     <div class="columns p-2 has-background-grey-light card">
-                        <div class="box1 column mr-1"><p class="subtitle ">Regular Season Record: --</p></div>
-                        <div class="box1 column ml-1"><p class="subtitle ">Playoff Record: --</p></div>
+                        <div class="box1 column m-1 mt-1 card"><p class="subtitle ">Regular Season Record: --</p></div>
+                        <div class="box1 column m-1 mt-1 card"><p class="subtitle ">Playoff Record: --</p></div>
                     </div>
-                    <p class="p-2 ">placeholder text to see how everything will fit</p>
                 </div>
                 
             </div>
@@ -69,12 +68,11 @@
         <!-- hero end -->
         <!--Modal below will run when the page starts to give instructions-->
         <!--The close class will be used to remove is-active class from the modal to close the modal-->
-        <div class="modal"                                                                                                                                                                ">
+        <div class="modal is-activ"                                                                                                                                                                ">
             <div class="modal-background"></div>
             <div class="modal-card">
               <header class="modal-card-head">
-                <p class="modal-card-title">Welcome to our (Placeholder)</p>
-                <button class="delete is-medium close" aria-label="close"></button>
+                <p class="modal-card-title">Act Like U Been There</p>
               </header>
                 <section class="modal-card-body">
                     <p class="title">Instructions</p>
@@ -82,9 +80,9 @@
                         select the team that you are interested in.</p>
                     <div class="block">
                         <p class="mb-1">Hit the submit button to view the given stats</p>
-                        <li>Placeholder 1</li>
-                        <li>Placeholder 2</li>
-                        <li>Placeholder 3</li>
+                        <li>The year you are looking for.</li>
+                        <li>The Regula Season Record.</li>
+                        <li>The Playoff Record.</li>
                     </div>
                     <p class="block">Your recent searches will be displayed below the submit button.</p>
                 </section>
