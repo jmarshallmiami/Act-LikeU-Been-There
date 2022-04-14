@@ -56,11 +56,11 @@ fetch(teamSeasonGames)
 
 
 // create clickable select elements that triggers functions to pull years in the playoff and championships
-// submitButton.addEventListener("click", chooseTeam)
+submitButton.addEventListener("submit", chooseTeam)
 
 // FUNCTION: modal close button
 
-// // modal was triggered
+// modal was triggered
 // $("#task-form-modal").on("show.bs.modal", function () {
 //   // clear values
 //   $("#modalTaskDescription, #modalDueDate").val("");
