@@ -40,7 +40,7 @@ function clickFunction() {
   function displayTeamName(value) {
     var teamPlaceholder = document.querySelector("h2.has-text-centered.title");
     teamPlaceholder.innerHTML = team[value - 1].name;
-
+    //  window.location.reload();
   };
   displayTeamName(selectedTeam);
 
@@ -75,7 +75,7 @@ function clickFunction() {
         // replace NBA logo with funny gif while data is loading for 4 seconds
         var imageLogoOveride = document.getElementById("team-logo");
         imageLogoOveride.setAttribute("src", giphyGif);
-    
+
         // function to display team logo
         imageLogoOveride.setAttribute("src", "./assets/Logo/" + selectedTeam + ".png");
       });
@@ -162,7 +162,7 @@ function clickFunction() {
       // if the team had a winning regular season record display as green and red if they had a losing record
       if (record.win >= record.loss) {
         yearRegularSeason.className = "has-text-success";
-        yearRegularSeason.innerHTML = record.win + " - " + record.loss + " - " + record.tie;
+        yearRegularSeason.innerHTML = "Regular Season Record:  " + record.win + " - " + record.loss + " - " + record.tie;
       }
       else if (record.win === 0 && record.loss === 0 && record.tie === 0) {
         yearRegularSeason.className = "has-text-danger";
@@ -172,21 +172,17 @@ function clickFunction() {
       }
       else {
         yearRegularSeason.className = "has-text-danger";
-        yearRegularSeason.innerHTML = record.win + " - " + record.loss + " - " + record.tie;
-        console.log(record);
-        console.log(yearRegularSeason);
+        yearRegularSeason.innerHTML = "Regular Season Record:  " + record.win + " - " + record.loss + " - " + record.tie;
       };
 
       // if the team had a winning regular season record display as green and red if they had a losing record
       if (playoffRecord.win >= playoffRecord.loss) {
         yearPlayoff.className = "has-text-success";
-        yearPlayoff.innerHTML = playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
-        console.log(playoffRecord);
+        yearPlayoff.innerHTML = "Playoff Record:  " + playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
       }
       else if (playoffRecord.loss >= playoffRecord.win) {
         yearPlayoff.className = "has-text-danger";
-        yearPlayoff.innerHTML = playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
-        console.log(playoffRecord);
+        yearPlayoff.innerHTML = "Playoff Record:  " + playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
       }
       else if (record.win > 0 || record.loss > 0 || record.tie > 0 && playoffRecord.win === 0 && playoffRecord.loss === 0 && playoffRecord.tie === 0) {
         console.log("No Playoff for you this year! :(");
