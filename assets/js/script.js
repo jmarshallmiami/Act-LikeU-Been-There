@@ -158,17 +158,16 @@ function clickFunction() {
       // display the selected year in box below logo
       yearChosen.innerHTML = "Year:     " + selectedYear;
 
-
       // if the team had a winning regular season record display as green and red if they had a losing record
-      if (record.win >= record.loss) {
-        yearRegularSeason.className = "has-text-success";
-        yearRegularSeason.innerHTML = "Regular Season Record:  " + record.win + " - " + record.loss + " - " + record.tie;
-      }
-      else if (record.win === 0 && record.loss === 0 && record.tie === 0) {
+      if (record.win === 0 && record.loss === 0 && record.tie === 0) {
         yearRegularSeason.className = "has-text-danger";
         yearRegularSeason.innerHTML = "Your team didn't exist during this season!";
         yearPlayoff.className = "has-text-danger";
         yearPlayoff.innerHTML = "Your team didn't exist during this season!";
+      }
+      else if (record.win >= record.loss) {
+        yearRegularSeason.className = "has-text-success";
+        yearRegularSeason.innerHTML = "Regular Season Record:  " + record.win + " - " + record.loss + " - " + record.tie;
       }
       else {
         yearRegularSeason.className = "has-text-danger";
@@ -184,13 +183,24 @@ function clickFunction() {
         yearPlayoff.className = "has-text-danger";
         yearPlayoff.innerHTML = "Playoff Record:  " + playoffRecord.win + " - " + playoffRecord.loss + " - " + playoffRecord.tie;
       }
-      else if (record.win > 0 || record.loss > 0 || record.tie > 0 && playoffRecord.win === 0 && playoffRecord.loss === 0 && playoffRecord.tie === 0) {
-        console.log("No Playoff for you this year! :(");
-        console.log(playoffRecord);
-      }
       else {
         console.log("This year and team combination has an error");
       }
+
+      if (record.win > 0 && playoffRecord.win === 0 && playoffRecord.loss === 0 && playoffRecord.tie === 0) {
+        yearPlayoff.className = "has-text-danger";
+        yearPlayoff.innerHTML = "No Playoff for you this year! :(";
+      }
+      else if (record.loss > 0 && playoffRecord.win === 0 && playoffRecord.loss === 0 && playoffRecord.tie === 0) {
+        yearPlayoff.className = "has-text-danger";
+        yearPlayoff.innerHTML = "No Playoff for you this year! :(";
+        console.log("No Playoff for you this year! :(");
+        console.log(playoffRecord);
+      }
+      else if (record.tie > 0 && playoffRecord.win === 0 && playoffRecord.loss === 0 && playoffRecord.tie === 0) {
+        yearPlayoff.className = "has-text-danger";
+        yearPlayoff.innerHTML = "No Playoff for you this year! :(";
+      };
     });
 };
 
