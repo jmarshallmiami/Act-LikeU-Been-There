@@ -20,8 +20,8 @@
 
         <div class="columns box1 is-one-third m-2 box has-background-grey-light">
             <!-- option start start -->
-            <section class="column control m-2">
-                <label for=" columns team-select">Who's Your Favorite NBA Basketball Team?</label>
+            <section class="column ">
+                <label for="team-select">Who's Your Favorite NBA Basketball Team?</label>
                 <div class="columns select is-info is-rounded m-2">
                     <select class="team-select"></select>
                 </div>
@@ -30,16 +30,16 @@
                 <div class="column select is-info is-rounded m-2">
                     <select class="year-select">year</select>
                 </div>
-                <div>
-                <button class="button is-info is-rounded m-1">Submit</button>
+                <div class="p-4">
+                    <button class="button is-info is-rounded m-1">Submit</button>
                 </div>
             </section>
         </div>
         <!-- option end -->
-    <!--box1 class is temporary used to have dashed lines around our boxes-->
+
         <!-- hero start -->
-        <main class="column box1 m-2 is-two-thirds has-background-grey-light">
-            <div class="column box">
+        <main class="column box1 m-2 box has-background-grey-light">
+            <div class="column box m-2">
                 <h2 class="has-text-centered title">Your team</h2>
                 
                 <figure class="image m-4">
@@ -49,21 +49,27 @@
             </div>
 
             <div class="columns m-2 box">
-                <div class=" column subtitle box1 m-2">
-                    <p class="subtitle has-text-centered">Your teams record:</p>
-                    <p>placeholder text to see how everything will fit</p>
+                <div class=" column subtitle">
+                    <div class="columns p-2 has-background-grey-light card mb-2">
+                        <div class="box1 column "><p class="subtitle ">Year: --</p></div>
+                    </div >
+                    <div class="columns p-2 has-background-grey-light card">
+                        <div class="box1 column mr-1"><p class="subtitle ">Regular Season Record: --</p></div>
+                        <div class="box1 column ml-1"><p class="subtitle ">Playoff Record: --</p></div>
+                    </div>
+                    <p class="p-2 ">placeholder text to see how everything will fit</p>
                 </div>
                 
             </div>
             <!-- modal start -->
-            <div class=" column box1">Modal for teams with no history in the tournament</div>
+            <div class=" column m-2 box">Modal for teams with no history in the tournament</div>
             <!-- modal end -->
 
         </main>
         <!-- hero end -->
         <!--Modal below will run when the page starts to give instructions-->
         <!--The close class will be used to remove is-active class from the modal to close the modal-->
-        <div class="modal                                                                                                                                                                ">
+        <div class="modal"                                                                                                                                                                ">
             <div class="modal-background"></div>
             <div class="modal-card">
               <header class="modal-card-head">
