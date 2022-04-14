@@ -60,7 +60,13 @@ function clickFunction() {
       var imageLogoOveride = document.getElementById("team-logo");
 
       imageLogoOveride.setAttribute("src", giphyGif);
-    });
+      console.log(imageLogoOveride);
+          // function to display team logo
+    imageLogoOveride.setAttribute("src", "./assets/Logo/" + selectedTeam + ".png");
+    console.log(imageLogoOveride);
+        });
+
+
 
   //fetch all available game scores for the selected year
   fetch(teamSeasonGames).then(function (response) {
