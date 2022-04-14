@@ -22,6 +22,7 @@ function closeModal() {$(".close").click(function(){
 };
 closeModal();
 
+function pullGif
 
 // click submit button and collect user inputs
 var submitButton = document.querySelector(".button.is-info.is-rounded.m-1");
