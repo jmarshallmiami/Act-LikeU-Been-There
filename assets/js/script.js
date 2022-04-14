@@ -1,14 +1,11 @@
 //object for the team to house id and full name 
 var team = [];
 
-// template literals placeholder values
-var selectedTeam = 0;
-var selectedYear = 0;
+
 
 // api request for an array of all available team objects for full name generation
 var teamNames = "https://www.balldontlie.io/api/v1/teams";
-// placeholder for api call for specific team for a specific year
-var teamSeasonGames = `https://www.balldontlie.io/api/v1/games?seasons[]=${selectedYear}&team_ids[]=${selectedTeam}&per_page=110`;
+
 
 // select html elements
 var selectTeamObject = document.querySelector(".team-select");
@@ -23,10 +20,19 @@ var submitButton = document.querySelector(".button.is-info.is-rounded.m-1");
 submitButton.onclick = myFunction;
 
 function myFunction() {
-  selectedTeam = document.querySelector(".team-select").value;
-  selectedYear = document.querySelector(".year-select").value;
+  // created variables for team/year
+  var selectedTeam = document.querySelector(".team-select").value;
+  var selectedYear = document.querySelector(".year-select").value;
+  console.log(document.querySelector(".team-select").text);
   // updated template literal values are passed into api
-  teamSeasonGames = `https://www.balldontlie.io/api/v1/games?seasons[]=${selectedYear}&team_ids[]=${selectedTeam}&per_page=110`;
+  var teamSeasonGames = `https://www.balldontlie.io/api/v1/games?seasons[]=${selectedYear}&team_ids[]=${selectedTeam}&per_page=110`;
+  
+  function displayTeamName(selectedTeam) {
+    var teamPlaceholder = document.querySelector("h2.has-text-centered.title");
+    teamPlaceholder.innerHTML = selectedTeam;
+    console.log(teamPlaceholder);
+  };
+  displayTeamName(selectedTeam);
   
   //fetch all available game scores for the selected year
   fetch(teamSeasonGames).then(function (response) {
