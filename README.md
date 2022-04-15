@@ -13,31 +13,37 @@ Before the user can click the submit button, they must select a specific team na
 Our group utilized various technologies in the creation and development of this application. 
 
 ## Languages and technologies used include 
-HTML 
-CSS 
-Javascript 
-Bulma 
-balldontlie API
-giphy API 
-jQuery
+```bash
+- HTML 
+- CSS 
+- Javascript 
+- Bulma 
+- Balldontlie API
+- Giphy API 
+- JQuery
+```
 
-## Image 1
-<img src="" width="600" >
+## Loading file
+<img src="./assets/screenshots/1.jpg" width="300" >
 
-## Image 2
-<img src="." width="600" >
+## Mobile enabled
+<img src="./assets/screenshots/2.jpg" width="300" >
 
-## Image 3
-<img src="." width="600" >
+## General Page
+<img src="./assets/screenshots/3.jpg" width="300" >
 
-## Image 4
-<img src="." width="600" >
+## Modal
+<img src="./assets/screenshots/4.jpg" width="300" >
 
-## Image 5
-<img src="." width="600" >
+## Team Dropdown
+<img src="./assets/screenshots/5.jpg" width="300" >
 
-## Image 6
-<img src="." width="600" >
+## Year dropdown
+<img src="./assets/screenshots/6.jpg" width="300" >
+
+[Website link](https://jmarshallmiami.github.io/Act-LikeU-Been-There/)
+
+[Github page](https://github.com/jmarshallmiami/Act-LikeU-Been-There)
 
 
 
