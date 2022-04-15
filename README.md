@@ -1,4 +1,4 @@
-# Project-1-Team-10
+# Act-LikeU-Been-There
 The members/junior developers of this group project who created the application include: Julian Marshall, Ambrose Shokunbi and Ian Mohn.
 
 First and foremost, we really took the time to outline different objectives and tasks that needed to be completed, as well as assigning roles to group members to ensure that we met the submission deadline. 
